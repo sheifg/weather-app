@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <!-- Bootstrap icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="container d-flex flex-column" style="height: 100vh">
+      <section class="header p-3 text-light">
+        <div class="container">
+          <div
+            class="text-center d-flex justify-content-center align-items-center"
+          >
+            <h1 class="header-title">Weather App</h1>
+          </div>
+          <form id="form" class="d-flex">
+            <!-- autofocus is to focus the attention of the user on the input with the cursor at the beginning of the input -->
+            <input
+              type="text"
+              class="header_input"
+              placeholder="Search for a city"
+              autofocus
+            />
+            <button type="submit" class="btn btn-primary ms-2">Search</button>
+          </form>
+          <span class="error_message"></span>
+        </div>
+      </section>
+      <section class="weather-info mt-5">
+        <div class="container">
+          <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-4 cities">
+            <!-- <div class="col">
+              <div class="city">
+                <h2 class="city_name">
+                  <span>Boston</span><span class="country_code">EG</span>
+                   text-danger because the icon should be red -->
+                  <!-- <i class="bi bi-x-circle-fill close-icon text-danger"></i>
+                </h2>
+                <div class="city_temp">12<sup>°F</sup></div> -->
+                <!-- it is more semantic to use it for images or icon. We want to use the caption of the image,using figcaption for taht reason it is necessary to use figcaption. They have to be together -->
+                <!-- <figure>
+                  <img
+                    src="https://openweathermap.org/img/wn/10d@2x.png"
+                    alt="icon"
+                    class="city-icon"
+                  />
+                </figure>
+                <figcaption>Few clouds</figcaption>
+                <div class="card-footer">
+                  <small class="text-body-secondary"
+                    >Last updated 3 min ago</small
+                  >
+                </div>
+              </div>
+            </div> --> 
+          </div>
+        </div>
+      </section>
+      <!-- mt-auto is putting the footer to the bottom -->
+      <!-- <footer class="text-end mt-auto">
+        <small
+          >Coded by<span
+            ><i class="bi bi-heart-fill text-danger"></i>SFG</span
+          ></small
+        >
+      </footer> -->
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
