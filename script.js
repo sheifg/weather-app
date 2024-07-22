@@ -8,15 +8,14 @@ const bringFromStorage = function () {
   cities = JSON.parse(localStorage.getItem("cities")) || [];
 };
 
-function getApiUrl(city) {
-  const url = BASE_URL + `q=${city}&appid=${btoa(apiKey)}&units=metric`;
-  return url;
-}
-
 async function getCityDataFromApi(cityName) {
-  const url = getApiUrl(cityName);
-  const res = await axios.get(url);
-  const data = res.data;
+  const { data } = await axios.get(BASE_URL, {
+    params: {
+      q: cityName,
+      appid: btoa(apiKey),
+      units: "metric",
+    },
+  });
   return data;
 }
 
@@ -29,7 +28,7 @@ function parseCityDataFromApi(cityDataFromApi) {
     temp: cityDataFromApi.main.temp,
     icon: cityDataFromApi.weather[0].icon,
     description: cityDataFromApi.weather[0].description,
-    time: cityDataFromApi.dt
+    time: cityDataFromApi.dt,
   };
   return cityData;
 }
@@ -105,8 +104,8 @@ form.addEventListener("submit", async (event) => {
 
 document.querySelector(".cities").addEventListener("click", (event) => {
   if (event.target.classList.contains("close-icon")) {
-    const card = event.target.closest(".col"); 
-    const cityId = Number(card.dataset.id); 
+    const card = event.target.closest(".col");
+    const cityId = Number(card.dataset.id);
     cities = cities.filter((city) => cityId !== city.id);
     card.remove();
     console.log(cities);
